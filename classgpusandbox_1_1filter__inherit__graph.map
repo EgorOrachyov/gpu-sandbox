@@ -1,0 +1,8 @@
+<map id="gpusandbox::filter" name="gpusandbox::filter">
+<area shape="rect" id="node1" title="An interface to any image filter." alt="" coords="5,129,127,156"/>
+<area shape="rect" id="node2" href="$classgpusandbox_1_1cpu__filter__blur.html" title="Naive cpu blur filter." alt="" coords="175,5,352,32"/>
+<area shape="rect" id="node3" href="$classgpusandbox_1_1cpu__filter__flip__x.html" title="Naive cpu flip along x axis from left to right filter." alt="" coords="189,57,338,98"/>
+<area shape="rect" id="node4" href="$classgpusandbox_1_1cpu__filter__flip__y.html" title="Naive cpu flip along y axis from bottom to top filter." alt="" coords="189,122,338,163"/>
+<area shape="rect" id="node5" href="$classgpusandbox_1_1cpu__filter__motion.html" title="Naive cpu motion filter along main diagonal." alt="" coords="189,187,338,229"/>
+<area shape="rect" id="node6" href="$classgpusandbox_1_1cpu__filter__sobel.html" title="Naive cpu sobel filter." alt="" coords="189,253,338,294"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_6',['main',['../main_8cpp.html#a110745d0e996bc19a8c8e8cacbadd525',1,'main.cpp']]]
+  ['data_82',['data',['../classgpusandbox_1_1image.html#a1c357b7b5695945751460d58ca432ddf',1,'gpusandbox::image::data() const'],['../classgpusandbox_1_1image.html#a47ba8686483bbb9f14b5eff443493311',1,'gpusandbox::image::data()']]]
 ];
