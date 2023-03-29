@@ -192,7 +192,24 @@ add_subdirectory(deps/stb)
 ######################################################################
 ## Source code configuration
 
-add_executable(gpusandbox src/main.cpp)
+add_executable(gpusandbox
+        src/main.cpp
+        src/color.hpp
+        src/filter.hpp
+        src/image.cpp
+        src/image.hpp
+        src/timer.cpp
+        src/timer.hpp
+        src/cpu_filter_flip.cpp
+        src/cpu_filter_flip.hpp
+        src/cpu_filter_blur.cpp
+        src/cpu_filter_blur.hpp
+        src/cpu_filter_motion.cpp
+        src/cpu_filter_motion.hpp
+        src/cpu_filter_sobel.cpp
+        src/cpu_filter_sobel.hpp
+        src/cpu_conv.hpp
+        )
 
 target_include_directories(gpusandbox PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 target_include_directories(gpusandbox PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)

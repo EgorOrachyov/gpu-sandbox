@@ -1,5 +1,9 @@
 # Gpu sandbox
 
+[![Build](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/build.yml)
+[![Clang Format](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/clang-format.yml/badge.svg)](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/clang-format.yml)
+[![Docs C/C++](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/docs-cpp.yml/badge.svg)](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/docs-cpp.yml)
+
 Sandbox to test various GPU algorithms, image filters, etc. implemented using OpenCL or Cuda.
 
 ## Building from sources
@@ -79,13 +83,14 @@ $ ./gpusandbox -h
 
 ## Project structure
 
-| Entry                  | Description                                                     |
-| :--------------------- |:----------------------------------------------------------------|
-| `📁 .github`           | CI/CD scripts and GitHub related files                          |
-| `📁 deps`              | Third-party project dependencies, stored as submodules          |
-| `📁 src`               | Private compiled source directory                               |
-| `📄 CMakeLists.txt`    | CMake configuration, add as sub directory to your project       |
-| `📄 build.py`          | Script to build project sources to executable                   |
+| Entry               | Description                                               |
+|:--------------------|:----------------------------------------------------------|
+| `📁 .github`        | CI/CD scripts and GitHub related files                    |
+| `📁 deps`           | Third-party project dependencies, stored as submodules    |
+| `📁 resource`       | Example resource images for testing and playing with      |
+| `📁 src`            | Private compiled source directory                         |
+| `📄 CMakeLists.txt` | CMake configuration, add as sub directory to your project |
+| `📄 build.py`       | Script to build project sources to executable             |
 
 ## License
 
