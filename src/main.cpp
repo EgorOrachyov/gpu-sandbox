@@ -10,17 +10,19 @@
 
 #include "cpu_filter_blur.hpp"
 #include "cpu_filter_flip.hpp"
+#include "cpu_filter_gray.hpp"
 #include "cpu_filter_motion.hpp"
 #include "cpu_filter_sobel.hpp"
 
 #include <cxxopts.hpp>
 
 #include <iostream>
-#include <unordered_map>
+#include <map>
 
 int main(int argc, const char* const* argv) {
     cxxopts::Options options("gpusandbox", "A sandbox application to test gpu algorithms");
     options.add_option("", cxxopts::Option("h,help", "display help info about application", cxxopts::value<bool>()->default_value("false")));
+    options.add_option("", cxxopts::Option("l,list", "list all available filters to apply", cxxopts::value<bool>()->default_value("false")));
     options.add_option("", cxxopts::Option("platform", "num of platform to select for gpu", cxxopts::value<int>()->default_value("0")));
     options.add_option("", cxxopts::Option("device", "num of device to select for gpu", cxxopts::value<int>()->default_value("0")));
     options.add_option("", cxxopts::Option("input", "path to the image to filter", cxxopts::value<std::string>()->default_value("<none>")));
@@ -43,13 +45,20 @@ int main(int argc, const char* const* argv) {
         return 0;
     }
 
-    // filters
-    std::unordered_map<std::string, std::unique_ptr<gpusandbox::filter>> filters;
+    // register filters
+    std::map<std::string, std::unique_ptr<gpusandbox::filter>> filters;
     filters["cpu_flip_x"] = std::make_unique<gpusandbox::cpu_filter_flip_x>();
     filters["cpu_flip_y"] = std::make_unique<gpusandbox::cpu_filter_flip_y>();
     filters["cpu_blur"]   = std::make_unique<gpusandbox::cpu_filter_blur>();
     filters["cpu_motion"] = std::make_unique<gpusandbox::cpu_filter_motion>();
     filters["cpu_sobel"]  = std::make_unique<gpusandbox::cpu_filter_sobel>();
+    filters["cpu_gray"]   = std::make_unique<gpusandbox::cpu_filter_gray>();
+
+    // show filters available
+    if (args["list"].as<bool>()) {
+        for (auto& kv : filters) std::cout << kv.first << "\n";
+        return 0;
+    }
 
     // state
     gpusandbox::filter* filter = filters[args["filter"].as<std::string>()].get();
@@ -74,16 +83,35 @@ int main(int argc, const char* const* argv) {
     gpusandbox::timer timer_prepare;
     gpusandbox::timer timer_total;
 
-    timer_exec.start();
+    timer_total.start();
+    {
+        filter->set_args(&args);
+        filter->set_input(&input);
+        filter->set_output(&output);
 
-    if (!filter->execute(input, output, args)) {
-        std::cerr << "failed to filter image "
-                  << args["input"].as<std::string>() << " with "
-                  << " '" << args["filter"].as<std::string>() << "'";
-        return 1;
+        timer_prepare.start();
+        {
+            if (!filter->prepare()) {
+                std::cerr << "failed to prepare image "
+                          << args["input"].as<std::string>() << " with "
+                          << " '" << args["filter"].as<std::string>() << "'";
+                return 1;
+            }
+        }
+        timer_prepare.stop();
+
+        timer_exec.start();
+        {
+            if (!filter->execute()) {
+                std::cerr << "failed to filter image "
+                          << args["input"].as<std::string>() << " with "
+                          << " '" << args["filter"].as<std::string>() << "'";
+                return 1;
+            }
+        }
+        timer_exec.stop();
     }
-
-    timer_exec.stop();
+    timer_total.stop();
 
     std::cout << "Filter image " << args["input"].as<std::string>() << " with "
               << " '" << args["filter"].as<std::string>() << "'\n";

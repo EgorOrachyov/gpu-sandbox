@@ -15,7 +15,7 @@ namespace gpusandbox {
     bool cpu_filter_sobel::prepare() {
         return true;
     }
-    bool cpu_filter_sobel::execute(const image& input, image& output, cxxopts::ParseResult& args) {
+    bool cpu_filter_sobel::execute() {
         float filter_kernel1[3][3] = {1.0f, 0.0f, -1.0f,
                                       2.0f, 0.0f, -2.0f,
                                       1.0f, 0.0f, -1.0f};
@@ -27,7 +27,7 @@ namespace gpusandbox {
         auto merge = [](float x, float y) { return std::sqrt(x * x + y * y); };
 
         cpu_conv2<3> conv;
-        conv(input, output, merge, filter_kernel1, filter_kernel2);
+        conv(*m_input, *m_output, merge, filter_kernel1, filter_kernel2);
         return true;
     }
 

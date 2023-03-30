@@ -20,9 +20,18 @@ namespace gpusandbox {
      */
     class filter {
     public:
-        virtual ~filter()                                                                   = default;
-        virtual bool prepare()                                                              = 0;
-        virtual bool execute(const image& input, image& output, cxxopts::ParseResult& args) = 0;
+        virtual ~filter()      = default;
+        virtual bool prepare() = 0;
+        virtual bool execute() = 0;
+
+        void set_args(cxxopts::ParseResult* args) { m_args = args; }
+        void set_input(const image* input) { m_input = input; }
+        void set_output(image* output) { m_output = output; }
+
+    protected:
+        cxxopts::ParseResult* m_args   = nullptr;
+        const image*          m_input  = nullptr;
+        image*                m_output = nullptr;
     };
 
 }// namespace gpusandbox

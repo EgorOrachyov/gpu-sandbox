@@ -15,8 +15,8 @@ namespace gpusandbox {
     bool cpu_filter_blur::prepare() {
         return true;
     }
-    bool cpu_filter_blur::execute(const image& input, image& output, cxxopts::ParseResult& args) {
-        int size = args["conv_size"].as<int>();
+    bool cpu_filter_blur::execute() {
+        int size = (*m_args)["conv_size"].as<int>();
 
         if (size == 3) {
             float filter_kernel[3][3] = {0.0f, 1.0f, 0.0f,
@@ -24,7 +24,7 @@ namespace gpusandbox {
                                          0.0f, 1.0f, 0.0f};
 
             cpu_conv<3> conv;
-            conv(input, output, 5.0f, filter_kernel);
+            conv(*m_input, *m_output, 5.0f, filter_kernel);
             return true;
         }
         if (size == 5) {
@@ -35,7 +35,7 @@ namespace gpusandbox {
                                          0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
 
             cpu_conv<5> conv;
-            conv(input, output, 13.0f, filter_kernel);
+            conv(*m_input, *m_output, 13.0f, filter_kernel);
             return true;
         }
         if (size == 7) {
@@ -48,7 +48,7 @@ namespace gpusandbox {
                                          0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f};
 
             cpu_conv<7> conv;
-            conv(input, output, 25.0f, filter_kernel);
+            conv(*m_input, *m_output, 25.0f, filter_kernel);
             return true;
         }
 

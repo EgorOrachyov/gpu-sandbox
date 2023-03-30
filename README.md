@@ -1,10 +1,24 @@
-# Gpu sandbox
+# gpu sandbox
 
 [![Build](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/build.yml/badge.svg)](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/build.yml)
 [![Clang Format](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/clang-format.yml/badge.svg)](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/clang-format.yml)
 [![Docs C/C++](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/docs-cpp.yml/badge.svg)](https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/docs-cpp.yml)
 
 Sandbox to test various GPU algorithms, image filters, etc. implemented using OpenCL or Cuda.
+
+## Image filters
+
+| Flip X                                                                                         | Flip Y                                                                                         |
+|:-----------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|
+| ![iamge](https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/flip_x.bmp) | ![iamge](https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/flip_y.bmp) |
+
+| Blur 3/5/7                                                                                   | Motion 9                                                                                       |
+|:---------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------|
+| ![iamge](https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/blur.bmp) | ![iamge](https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/motion.bmp) |
+
+| Sobel                                                                                          | Grayscale                                                                                    |
+|:-----------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|
+| ![iamge](https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/sobel.bmp)  | ![iamge](https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/gray.bmp) |
 
 ## Building from sources
 
@@ -63,6 +77,18 @@ Print help message to get all possible options.
 
 ```shell
 $ ./gpusandbox -h
+```
+
+List all available filters.
+
+```shell
+$ ./gpusandbox -l
+```
+
+Apply filter to an image and save result.
+
+```shell
+$ ./gpusandbox --filter=<filter name> --input=<image_src>.png --output=<image_dst>.bmp
 ```
 
 ## Contributors

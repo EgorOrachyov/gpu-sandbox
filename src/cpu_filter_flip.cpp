@@ -11,11 +11,11 @@ namespace gpusandbox {
     bool cpu_filter_flip_x::prepare() {
         return true;
     }
-    bool cpu_filter_flip_x::execute(const image& input, image& output, cxxopts::ParseResult& args) {
-        int          w      = input.width();
-        int          h      = input.height();
-        const color* s_data = input.data().data();
-        color*       d_data = output.data().data();
+    bool cpu_filter_flip_x::execute() {
+        int          w      = m_input->width();
+        int          h      = m_input->height();
+        const color* s_data = m_input->data().data();
+        color*       d_data = m_output->data().data();
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
@@ -33,11 +33,11 @@ namespace gpusandbox {
     bool cpu_filter_flip_y::prepare() {
         return true;
     }
-    bool cpu_filter_flip_y::execute(const image& input, image& output, cxxopts::ParseResult& args) {
-        int          w      = input.width();
-        int          h      = input.height();
-        const color* s_data = input.data().data();
-        color*       d_data = output.data().data();
+    bool cpu_filter_flip_y::execute() {
+        int          w      = m_input->width();
+        int          h      = m_input->height();
+        const color* s_data = m_input->data().data();
+        color*       d_data = m_output->data().data();
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {

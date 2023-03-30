@@ -13,7 +13,7 @@ namespace gpusandbox {
     bool cpu_filter_motion::prepare() {
         return true;
     }
-    bool cpu_filter_motion::execute(const image& input, image& output, cxxopts::ParseResult& args) {
+    bool cpu_filter_motion::execute() {
         float filter_kernel[9][9] = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
                                      0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
                                      0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
@@ -25,7 +25,7 @@ namespace gpusandbox {
                                      0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
 
         cpu_conv<9> conv;
-        conv(input, output, float(9), filter_kernel);
+        conv(*m_input, *m_output, 9.0f, filter_kernel);
         return true;
     }
 

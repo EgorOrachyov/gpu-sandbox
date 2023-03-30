@@ -18,7 +18,7 @@ namespace gpusandbox {
     public:
         ~cpu_filter_blur() override = default;
         bool prepare() override;
-        bool execute(const image& input, image& output, cxxopts::ParseResult& args) override;
+        bool execute() override;
     };
 
 

@@ -202,6 +202,8 @@ add_executable(gpusandbox
         src/timer.hpp
         src/cpu_filter_flip.cpp
         src/cpu_filter_flip.hpp
+        src/cpu_filter_gray.cpp
+        src/cpu_filter_gray.hpp
         src/cpu_filter_blur.cpp
         src/cpu_filter_blur.hpp
         src/cpu_filter_motion.cpp
