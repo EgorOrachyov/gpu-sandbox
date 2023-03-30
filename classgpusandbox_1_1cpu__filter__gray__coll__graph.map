@@ -1,0 +1,5 @@
+<map id="gpusandbox::cpu_filter_gray" name="gpusandbox::cpu_filter_gray">
+<area shape="rect" id="node1" title="Grayscale filter." alt="" coords="5,185,185,212"/>
+<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="An interface to any image filter." alt="" coords="35,109,156,136"/>
+<area shape="rect" id="node3" href="$classgpusandbox_1_1image.html" title="2d&#45;image holding pixel data in float format with a float per pixel" alt="" coords="29,5,161,32"/>
+</map>

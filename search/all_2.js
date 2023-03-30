@@ -12,10 +12,13 @@ var searchData=
   ['cpu_5ffilter_5fflip_2ehpp_11',['cpu_filter_flip.hpp',['../cpu__filter__flip_8hpp.html',1,'']]],
   ['cpu_5ffilter_5fflip_5fx_12',['cpu_filter_flip_x',['../classgpusandbox_1_1cpu__filter__flip__x.html',1,'gpusandbox']]],
   ['cpu_5ffilter_5fflip_5fy_13',['cpu_filter_flip_y',['../classgpusandbox_1_1cpu__filter__flip__y.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fmotion_14',['cpu_filter_motion',['../classgpusandbox_1_1cpu__filter__motion.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fmotion_2ecpp_15',['cpu_filter_motion.cpp',['../cpu__filter__motion_8cpp.html',1,'']]],
-  ['cpu_5ffilter_5fmotion_2ehpp_16',['cpu_filter_motion.hpp',['../cpu__filter__motion_8hpp.html',1,'']]],
-  ['cpu_5ffilter_5fsobel_17',['cpu_filter_sobel',['../classgpusandbox_1_1cpu__filter__sobel.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fsobel_2ecpp_18',['cpu_filter_sobel.cpp',['../cpu__filter__sobel_8cpp.html',1,'']]],
-  ['cpu_5ffilter_5fsobel_2ehpp_19',['cpu_filter_sobel.hpp',['../cpu__filter__sobel_8hpp.html',1,'']]]
+  ['cpu_5ffilter_5fgray_14',['cpu_filter_gray',['../classgpusandbox_1_1cpu__filter__gray.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fgray_2ecpp_15',['cpu_filter_gray.cpp',['../cpu__filter__gray_8cpp.html',1,'']]],
+  ['cpu_5ffilter_5fgray_2ehpp_16',['cpu_filter_gray.hpp',['../cpu__filter__gray_8hpp.html',1,'']]],
+  ['cpu_5ffilter_5fmotion_17',['cpu_filter_motion',['../classgpusandbox_1_1cpu__filter__motion.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fmotion_2ecpp_18',['cpu_filter_motion.cpp',['../cpu__filter__motion_8cpp.html',1,'']]],
+  ['cpu_5ffilter_5fmotion_2ehpp_19',['cpu_filter_motion.hpp',['../cpu__filter__motion_8hpp.html',1,'']]],
+  ['cpu_5ffilter_5fsobel_20',['cpu_filter_sobel',['../classgpusandbox_1_1cpu__filter__sobel.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fsobel_2ecpp_21',['cpu_filter_sobel.cpp',['../cpu__filter__sobel_8cpp.html',1,'']]],
+  ['cpu_5ffilter_5fsobel_2ehpp_22',['cpu_filter_sobel.hpp',['../cpu__filter__sobel_8hpp.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>gpusandbox: Gpu sandbox</title>
+<title>gpusandbox: gpu sandbox</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,11 +62,30 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Gpu sandbox </div>  </div>
+<div class="title">gpu sandbox </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a> <a href="https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/build.yml"><img src="https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/build.yml/badge.svg" alt="Build" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/clang-format.yml"><img src="https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/clang-format.yml/badge.svg" alt="Clang Format" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/docs-cpp.yml"><img src="https://github.com/EgorOrachyov/gpu-sandbox/actions/workflows/docs-cpp.yml/badge.svg" alt="Docs C/C++" style="pointer-events: none;" class="inline"/></a></p>
 <p>Sandbox to test various GPU algorithms, image filters, etc. implemented using OpenCL or Cuda.</p>
+<h1>Image filters</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Flip X   </th><th class="markdownTableHeadLeft">Flip Y    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><img src="https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/flip_x.bmp" alt="iamge" class="inline"/>   </td><td class="markdownTableBodyLeft"><img src="https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/flip_y.bmp" alt="iamge" class="inline"/>   </td></tr>
+</table>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Blur 3/5/7   </th><th class="markdownTableHeadLeft">Motion 9    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><img src="https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/blur.bmp" alt="iamge" class="inline"/>   </td><td class="markdownTableBodyLeft"><img src="https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/motion.bmp" alt="iamge" class="inline"/>   </td></tr>
+</table>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Sobel   </th><th class="markdownTableHeadLeft">Grayscale    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><img src="https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/sobel.bmp" alt="iamge" class="inline"/>   </td><td class="markdownTableBodyLeft"><img src="https://raw.githubusercontent.com/EgorOrachyov/gpu-sandbox/main/resources/gray.bmp" alt="iamge" class="inline"/>   </td></tr>
+</table>
 <h1>Building from sources</h1>
 <h2>Prerequisites</h2>
 <ul>
@@ -107,6 +126,10 @@ $(function() {
 <p>The following code snippet allows to run executable application of the project to test different algorithms. Must be executed from the directory used for a build in the previous step.</p>
 <p>Print help message to get all possible options.</p>
 <div class="fragment"><div class="line">$ ./gpusandbox -h</div>
+</div><!-- fragment --><p>List all available filters.</p>
+<div class="fragment"><div class="line">$ ./gpusandbox -l</div>
+</div><!-- fragment --><p>Apply filter to an image and save result.</p>
+<div class="fragment"><div class="line">$ ./gpusandbox --filter=&lt;filter name&gt; --input=&lt;image_src&gt;.png --output=&lt;image_dst&gt;.bmp</div>
 </div><!-- fragment --><h1>Contributors</h1>
 <ul>
 <li>Egor Orachyov (Github: <a href="https://github.com/EgorOrachyov">@EgorOrachyov</a>)</li>
