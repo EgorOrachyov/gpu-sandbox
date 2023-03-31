@@ -39,6 +39,7 @@ int main(int argc, const char* const* argv) {
     options.add_option("", cxxopts::Option("output", "path to save result filtered image", cxxopts::value<std::string>()->default_value("out.bmp")));
     options.add_option("", cxxopts::Option("filter", "filter name to apply", cxxopts::value<std::string>()->default_value("<none>")));
     options.add_option("", cxxopts::Option("conv_size", "size of kernel for convolution", cxxopts::value<int>()->default_value("3")));
+    options.add_option("", cxxopts::Option("niters", "times to execute", cxxopts::value<int>()->default_value("4")));
 
     cxxopts::ParseResult args;
 
@@ -109,6 +110,9 @@ int main(int argc, const char* const* argv) {
     gpusandbox::timer timer_readback;
     gpusandbox::timer timer_total;
 
+    std::cout << "Filter image " << args["input"].as<std::string>() << " with "
+              << " '" << args["filter"].as<std::string>() << "'\n";
+
     timer_total.start();
     {
         filter->set_args(&args);
@@ -132,16 +136,23 @@ int main(int argc, const char* const* argv) {
         }
         timer_prepare.stop();
 
-        timer_exec.start();
-        {
-            if (!filter->execute()) {
-                std::cerr << "failed to filter image "
-                          << args["input"].as<std::string>() << " with "
-                          << " '" << args["filter"].as<std::string>() << "'";
-                return 1;
+        int niters = args["niters"].as<int>();
+
+        std::cout << " time exec (" << niters << "):\n";
+
+        for (int i = 0; i < niters; i++) {
+            timer_exec.start();
+            {
+                if (!filter->execute()) {
+                    std::cerr << "failed to filter image "
+                              << args["input"].as<std::string>() << " with "
+                              << " '" << args["filter"].as<std::string>() << "'";
+                    return 1;
+                }
             }
+            timer_exec.stop();
+            std::cout << "  - run:     " << timer_exec.elapsed_ms() << " ms\n";
         }
-        timer_exec.stop();
 
         timer_readback.start();
         {
@@ -156,11 +167,8 @@ int main(int argc, const char* const* argv) {
     }
     timer_total.stop();
 
-    std::cout << "Filter image " << args["input"].as<std::string>() << " with "
-              << " '" << args["filter"].as<std::string>() << "'\n";
     std::cout << " time total:    " << timer_total.elapsed_ms() << " ms\n";
     std::cout << " time prepare:  " << timer_prepare.elapsed_ms() << " ms\n";
-    std::cout << " time exec:     " << timer_exec.elapsed_ms() << " ms\n";
     std::cout << " time readback: " << timer_readback.elapsed_ms() << " ms\n";
 
     // save filtered image
