@@ -11,27 +11,30 @@
 
 #include <cxxopts.hpp>
 
+#include <memory>
 #include <string>
+#include <utility>
 
 namespace gpusandbox {
 
     /**
-     * @brief An interface to any image filter
+     * @brief A base class for any image filter
      */
     class filter {
     public:
-        virtual ~filter()      = default;
-        virtual bool prepare() = 0;
-        virtual bool execute() = 0;
+        virtual ~filter() = default;
+        virtual bool prepare() { return true; }
+        virtual bool execute() { return true; }
+        virtual bool readback() { return true; }
 
         void set_args(cxxopts::ParseResult* args) { m_args = args; }
-        void set_input(const image* input) { m_input = input; }
-        void set_output(image* output) { m_output = output; }
+        void set_input(std::shared_ptr<image> input) { m_input = std::move(input); }
+        void set_output(std::shared_ptr<image> output) { m_output = std::move(output); }
 
     protected:
-        cxxopts::ParseResult* m_args   = nullptr;
-        const image*          m_input  = nullptr;
-        image*                m_output = nullptr;
+        cxxopts::ParseResult*  m_args = nullptr;
+        std::shared_ptr<image> m_input;
+        std::shared_ptr<image> m_output = nullptr;
     };
 
 }// namespace gpusandbox

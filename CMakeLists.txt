@@ -192,6 +192,27 @@ add_subdirectory(deps/stb)
 ######################################################################
 ## Source code configuration
 
+set(CL_BACKEND)
+
+if (GPUSANDBOX_BUILD_OPENCL)
+    set(CL_BACKEND
+            src/cl_backend.cpp
+            src/cl_backend.hpp
+            src/cl_filter.cpp
+            src/cl_filter.hpp
+            src/cl_filter_gray.cpp
+            src/cl_filter_gray.hpp
+            src/cl_filter_blur.cpp
+            src/cl_filter_blur.hpp
+            src/cl_filter_motion.cpp
+            src/cl_filter_motion.hpp
+            src/cl_filter_sobel.cpp
+            src/cl_filter_sobel.hpp
+            src/cl_conv.cpp
+            src/cl_conv.hpp
+            )
+endif ()
+
 add_executable(gpusandbox
         src/main.cpp
         src/color.hpp
@@ -211,7 +232,7 @@ add_executable(gpusandbox
         src/cpu_filter_sobel.cpp
         src/cpu_filter_sobel.hpp
         src/cpu_conv.hpp
-        )
+        ${CL_BACKEND})
 
 target_include_directories(gpusandbox PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 target_include_directories(gpusandbox PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)

@@ -17,7 +17,6 @@ namespace gpusandbox {
     class cpu_filter_motion : public filter {
     public:
         ~cpu_filter_motion() override = default;
-        bool prepare() override;
         bool execute() override;
     };
 

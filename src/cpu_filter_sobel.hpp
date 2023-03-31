@@ -17,7 +17,6 @@ namespace gpusandbox {
     class cpu_filter_sobel : public filter {
     public:
         ~cpu_filter_sobel() override = default;
-        bool prepare() override;
         bool execute() override;
     };
 

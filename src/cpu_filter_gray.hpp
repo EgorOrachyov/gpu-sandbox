@@ -17,7 +17,6 @@ namespace gpusandbox {
     class cpu_filter_gray : public filter {
     public:
         ~cpu_filter_gray() override = default;
-        bool prepare() override;
         bool execute() override;
     };
 

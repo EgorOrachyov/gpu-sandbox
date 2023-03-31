@@ -17,7 +17,6 @@ namespace gpusandbox {
     class cpu_filter_blur : public filter {
     public:
         ~cpu_filter_blur() override = default;
-        bool prepare() override;
         bool execute() override;
     };
 

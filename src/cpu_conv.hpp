@@ -44,7 +44,6 @@ namespace gpusandbox {
                                 result.r += source.r * kernel[kernel_i][kernel_j];
                                 result.g += source.g * kernel[kernel_i][kernel_j];
                                 result.b += source.b * kernel[kernel_i][kernel_j];
-                                result.a += source.a * kernel[kernel_i][kernel_j];
                             }
                         }
                     }
@@ -52,12 +51,11 @@ namespace gpusandbox {
                     result.r /= factor;
                     result.g /= factor;
                     result.b /= factor;
-                    result.a /= factor;
 
                     result.r = std::min(std::max(0.0f, result.r), 1.0f);
                     result.g = std::min(std::max(0.0f, result.g), 1.0f);
                     result.b = std::min(std::max(0.0f, result.b), 1.0f);
-                    result.a = std::min(std::max(0.0f, result.a), 1.0f);
+                    result.a = 1.0f;
 
                     d_data[pixel_i * w + pixel_j] = result;
                 }

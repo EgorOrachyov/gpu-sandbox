@@ -10,9 +10,6 @@
 
 namespace gpusandbox {
 
-    bool cpu_filter_motion::prepare() {
-        return true;
-    }
     bool cpu_filter_motion::execute() {
         float filter_kernel[9][9] = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
                                      0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,

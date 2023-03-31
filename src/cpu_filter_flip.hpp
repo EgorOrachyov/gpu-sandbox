@@ -17,7 +17,6 @@ namespace gpusandbox {
     class cpu_filter_flip_x : public filter {
     public:
         ~cpu_filter_flip_x() override = default;
-        bool prepare() override;
         bool execute() override;
     };
 
@@ -27,7 +26,6 @@ namespace gpusandbox {
     class cpu_filter_flip_y : public filter {
     public:
         ~cpu_filter_flip_y() override = default;
-        bool prepare() override;
         bool execute() override;
     };
 

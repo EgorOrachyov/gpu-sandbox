@@ -10,9 +10,6 @@
 
 namespace gpusandbox {
 
-    bool cpu_filter_gray::prepare() {
-        return true;
-    }
     bool cpu_filter_gray::execute() {
         int          w      = m_input->width();
         int          h      = m_input->height();
@@ -29,6 +26,7 @@ namespace gpusandbox {
                 color result;
 
                 float gray = weight.r * source.r + weight.g * source.g + weight.b * source.b;
+                gray       = std::max(0.0f, std::min(gray, 1.0f));
 
                 result.r = gray;
                 result.g = gray;

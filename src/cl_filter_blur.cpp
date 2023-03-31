@@ -1,18 +1,18 @@
 /**
- * @file cpu_filter_blur.cpp
+ * @file cl_filter_blur.cpp
  * @author Egor Orachev
- * @date 3/30/2023
+ * @date 3/31/2023
  */
 
-#include "cpu_filter_blur.hpp"
-
-#include "cpu_conv.hpp"
-
-#include <iostream>
+#include "cl_filter_blur.hpp"
 
 namespace gpusandbox {
 
-    bool cpu_filter_blur::execute() {
+    bool cl_filter_blur::prepare() {
+        if (!cl_filter::prepare()) {
+            return false;
+        }
+
         int size = (*m_args)["conv_size"].as<int>();
 
         if (size == 3) {
@@ -20,9 +20,8 @@ namespace gpusandbox {
                                          1.0f, 1.0f, 1.0f,
                                          0.0f, 1.0f, 0.0f};
 
-            cpu_conv<3> conv;
-            conv(*m_input, *m_output, 5.0f, filter_kernel);
-            return true;
+            m_conv = std::make_unique<cl_conv>("blur_3", m_backend, 5.0f, 3, (float*) filter_kernel);
+            return m_conv->prepare();
         }
         if (size == 5) {
             float filter_kernel[5][5] = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
@@ -31,9 +30,8 @@ namespace gpusandbox {
                                          0.0f, 1.0f, 1.0f, 1.0f, 0.0f,
                                          0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
 
-            cpu_conv<5> conv;
-            conv(*m_input, *m_output, 13.0f, filter_kernel);
-            return true;
+            m_conv = std::make_unique<cl_conv>("blur_3", m_backend, 13.0f, 5, (float*) filter_kernel);
+            return m_conv->prepare();
         }
         if (size == 7) {
             float filter_kernel[7][7] = {0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
@@ -44,12 +42,19 @@ namespace gpusandbox {
                                          0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
                                          0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f};
 
-            cpu_conv<7> conv;
-            conv(*m_input, *m_output, 25.0f, filter_kernel);
-            return true;
+            m_conv = std::make_unique<cl_conv>("blur_3", m_backend, 25.0f, 7, (float*) filter_kernel);
+            return m_conv->prepare();
         }
 
         std::cerr << "no filter size " << size;
         return false;
     }
+    bool cl_filter_blur::execute() {
+        if ((*m_args)["storage"].as<std::string>() == "image") {
+            return (*m_conv)(m_input->width(), m_input->height(), m_cl_input_img, m_cl_output_img, m_cl_sampler);
+        }
+
+        return false;
+    }
+
 }// namespace gpusandbox

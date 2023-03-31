@@ -8,9 +8,6 @@
 
 namespace gpusandbox {
 
-    bool cpu_filter_flip_x::prepare() {
-        return true;
-    }
     bool cpu_filter_flip_x::execute() {
         int          w      = m_input->width();
         int          h      = m_input->height();
@@ -30,9 +27,6 @@ namespace gpusandbox {
         return true;
     }
 
-    bool cpu_filter_flip_y::prepare() {
-        return true;
-    }
     bool cpu_filter_flip_y::execute() {
         int          w      = m_input->width();
         int          h      = m_input->height();
