@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['_7ecpu_5ffilter_5fblur_111',['~cpu_filter_blur',['../classgpusandbox_1_1cpu__filter__blur.html#a9286061d6b240f3caf9bc9611eb41d30',1,'gpusandbox::cpu_filter_blur']]],
-  ['_7ecpu_5ffilter_5fflip_5fx_112',['~cpu_filter_flip_x',['../classgpusandbox_1_1cpu__filter__flip__x.html#aefe0e9f88dad209f9c3e9da7f37a708b',1,'gpusandbox::cpu_filter_flip_x']]],
-  ['_7ecpu_5ffilter_5fflip_5fy_113',['~cpu_filter_flip_y',['../classgpusandbox_1_1cpu__filter__flip__y.html#ad49f830edd8a33aebb90e107b246c947',1,'gpusandbox::cpu_filter_flip_y']]],
-  ['_7ecpu_5ffilter_5fgray_114',['~cpu_filter_gray',['../classgpusandbox_1_1cpu__filter__gray.html#a3e37c85aa8a0fa85858323928b1caa31',1,'gpusandbox::cpu_filter_gray']]],
-  ['_7ecpu_5ffilter_5fmotion_115',['~cpu_filter_motion',['../classgpusandbox_1_1cpu__filter__motion.html#a478a23e8f3d0e8baa0a6ccd37156637e',1,'gpusandbox::cpu_filter_motion']]],
-  ['_7ecpu_5ffilter_5fsobel_116',['~cpu_filter_sobel',['../classgpusandbox_1_1cpu__filter__sobel.html#ad7e4a6315a042e6551edb2c95a1c6f93',1,'gpusandbox::cpu_filter_sobel']]],
-  ['_7efilter_117',['~filter',['../classgpusandbox_1_1filter.html#a2f253eb6a55c4dd21dc98dcdfd9ca288',1,'gpusandbox::filter']]]
+  ['platform_181',['platform',['../classgpusandbox_1_1cl__backend.html#a125b406855540b48eadddab2a3daa7f4',1,'gpusandbox::cl_backend']]],
+  ['prepare_182',['prepare',['../classgpusandbox_1_1cl__conv.html#a36f30b20957405d79a6500b348f59234',1,'gpusandbox::cl_conv::prepare()'],['../classgpusandbox_1_1cl__conv2.html#a554347eaa77e9550f13e398ecdd13784',1,'gpusandbox::cl_conv2::prepare()'],['../classgpusandbox_1_1cl__filter.html#ace1751738c833a0cbce46aef131218c4',1,'gpusandbox::cl_filter::prepare()'],['../classgpusandbox_1_1cl__filter__blur.html#a4e41baf3db2c77e31b26dbe3ebe6e0c3',1,'gpusandbox::cl_filter_blur::prepare()'],['../classgpusandbox_1_1cl__filter__gray.html#a3c46a2973ba6bd6b7632cc78bb061ebe',1,'gpusandbox::cl_filter_gray::prepare()'],['../classgpusandbox_1_1cl__filter__motion.html#a2082dffa6ba124e3389cccb44f78a866',1,'gpusandbox::cl_filter_motion::prepare()'],['../classgpusandbox_1_1cl__filter__sobel.html#a912dbea0390022654603b7dc523cc9bf',1,'gpusandbox::cl_filter_sobel::prepare()'],['../classgpusandbox_1_1filter.html#ac9c9d861fedaee695a8dad290671e55e',1,'gpusandbox::filter::prepare()']]],
+  ['program_5fcache_183',['program_cache',['../classgpusandbox_1_1cl__backend.html#afa6003cd41ceb9aa77c1552d17b008b6',1,'gpusandbox::cl_backend']]]
 ];

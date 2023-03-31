@@ -1,4 +1,4 @@
 <map id="gpusandbox::cpu_filter_blur" name="gpusandbox::cpu_filter_blur">
 <area shape="rect" id="node1" title="Naive cpu blur filter." alt="" coords="5,80,183,107"/>
-<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="An interface to any image filter." alt="" coords="33,5,155,32"/>
+<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="A base class for any image filter." alt="" coords="33,5,155,32"/>
 </map>

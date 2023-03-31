@@ -1,0 +1,8 @@
+<map id="gpusandbox::cl_filter" name="gpusandbox::cl_filter">
+<area shape="rect" id="node1" title="A base class for opencl based filter." alt="" coords="175,85,313,112"/>
+<area shape="rect" id="node3" href="$classgpusandbox_1_1cl__filter__blur.html" title=" " alt="" coords="363,5,529,32"/>
+<area shape="rect" id="node4" href="$classgpusandbox_1_1cl__filter__gray.html" title="OpenCL grayscale filter implementation." alt="" coords="361,56,531,83"/>
+<area shape="rect" id="node5" href="$classgpusandbox_1_1cl__filter__motion.html" title="OpenCL motion blur filter." alt="" coords="377,107,515,149"/>
+<area shape="rect" id="node6" href="$classgpusandbox_1_1cl__filter__sobel.html" title="OpenCL sobel filter." alt="" coords="377,173,515,214"/>
+<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="A base class for any image filter." alt="" coords="5,85,127,112"/>
+</map>

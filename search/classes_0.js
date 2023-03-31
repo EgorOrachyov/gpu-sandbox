@@ -1,12 +1,20 @@
 var searchData=
 [
-  ['color_63',['color',['../structgpusandbox_1_1color.html',1,'gpusandbox']]],
-  ['cpu_5fconv_64',['cpu_conv',['../classgpusandbox_1_1cpu__conv.html',1,'gpusandbox']]],
-  ['cpu_5fconv2_65',['cpu_conv2',['../classgpusandbox_1_1cpu__conv2.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fblur_66',['cpu_filter_blur',['../classgpusandbox_1_1cpu__filter__blur.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fflip_5fx_67',['cpu_filter_flip_x',['../classgpusandbox_1_1cpu__filter__flip__x.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fflip_5fy_68',['cpu_filter_flip_y',['../classgpusandbox_1_1cpu__filter__flip__y.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fgray_69',['cpu_filter_gray',['../classgpusandbox_1_1cpu__filter__gray.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fmotion_70',['cpu_filter_motion',['../classgpusandbox_1_1cpu__filter__motion.html',1,'gpusandbox']]],
-  ['cpu_5ffilter_5fsobel_71',['cpu_filter_sobel',['../classgpusandbox_1_1cpu__filter__sobel.html',1,'gpusandbox']]]
+  ['cl_5fbackend_111',['cl_backend',['../classgpusandbox_1_1cl__backend.html',1,'gpusandbox']]],
+  ['cl_5fconv_112',['cl_conv',['../classgpusandbox_1_1cl__conv.html',1,'gpusandbox']]],
+  ['cl_5fconv2_113',['cl_conv2',['../classgpusandbox_1_1cl__conv2.html',1,'gpusandbox']]],
+  ['cl_5ffilter_114',['cl_filter',['../classgpusandbox_1_1cl__filter.html',1,'gpusandbox']]],
+  ['cl_5ffilter_5fblur_115',['cl_filter_blur',['../classgpusandbox_1_1cl__filter__blur.html',1,'gpusandbox']]],
+  ['cl_5ffilter_5fgray_116',['cl_filter_gray',['../classgpusandbox_1_1cl__filter__gray.html',1,'gpusandbox']]],
+  ['cl_5ffilter_5fmotion_117',['cl_filter_motion',['../classgpusandbox_1_1cl__filter__motion.html',1,'gpusandbox']]],
+  ['cl_5ffilter_5fsobel_118',['cl_filter_sobel',['../classgpusandbox_1_1cl__filter__sobel.html',1,'gpusandbox']]],
+  ['color_119',['color',['../structgpusandbox_1_1color.html',1,'gpusandbox']]],
+  ['cpu_5fconv_120',['cpu_conv',['../classgpusandbox_1_1cpu__conv.html',1,'gpusandbox']]],
+  ['cpu_5fconv2_121',['cpu_conv2',['../classgpusandbox_1_1cpu__conv2.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fblur_122',['cpu_filter_blur',['../classgpusandbox_1_1cpu__filter__blur.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fflip_5fx_123',['cpu_filter_flip_x',['../classgpusandbox_1_1cpu__filter__flip__x.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fflip_5fy_124',['cpu_filter_flip_y',['../classgpusandbox_1_1cpu__filter__flip__y.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fgray_125',['cpu_filter_gray',['../classgpusandbox_1_1cpu__filter__gray.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fmotion_126',['cpu_filter_motion',['../classgpusandbox_1_1cpu__filter__motion.html',1,'gpusandbox']]],
+  ['cpu_5ffilter_5fsobel_127',['cpu_filter_sobel',['../classgpusandbox_1_1cpu__filter__sobel.html',1,'gpusandbox']]]
 ];

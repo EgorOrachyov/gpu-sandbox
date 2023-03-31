@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_95',['data',['../classgpusandbox_1_1image.html#a1c357b7b5695945751460d58ca432ddf',1,'gpusandbox::image::data() const'],['../classgpusandbox_1_1image.html#a47ba8686483bbb9f14b5eff443493311',1,'gpusandbox::image::data()']]]
+  ['build_5fand_5fcache_5fprogram_165',['build_and_cache_program',['../classgpusandbox_1_1cl__backend.html#a749017cb036f466debb2edb5aab25cf5',1,'gpusandbox::cl_backend']]]
 ];

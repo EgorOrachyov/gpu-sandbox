@@ -1,4 +1,4 @@
 <map id="gpusandbox::cpu_filter_gray" name="gpusandbox::cpu_filter_gray">
 <area shape="rect" id="node1" title="Grayscale filter." alt="" coords="5,80,185,107"/>
-<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="An interface to any image filter." alt="" coords="35,5,156,32"/>
+<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="A base class for any image filter." alt="" coords="35,5,156,32"/>
 </map>

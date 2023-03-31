@@ -105,84 +105,82 @@ $(function() {
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                result.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> += source.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> * kernel[kernel_i][kernel_j];</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                result.g += source.<a class="code" href="structgpusandbox_1_1color.html#a071b69748248b96b4af424e22a9bd18c">g</a> * kernel[kernel_i][kernel_j];</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                result.b += source.<a class="code" href="structgpusandbox_1_1color.html#ad38267f741c8062d971787d17bac5b3d">b</a> * kernel[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                result.a += source.<a class="code" href="structgpusandbox_1_1color.html#a0f7f80bbe5911978f152aa743a960a10">a</a> * kernel[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                            }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    result.r /= factor;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    result.g /= factor;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    result.b /= factor;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    result.a /= factor;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    result.r = std::min(std::max(0.0f, result.r), 1.0f);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    result.g = std::min(std::max(0.0f, result.g), 1.0f);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    result.b = std::min(std::max(0.0f, result.b), 1.0f);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    result.a = std::min(std::max(0.0f, result.a), 1.0f);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    d_data[pixel_i * w + pixel_j] = result;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    };</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> size&gt;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classgpusandbox_1_1cpu__conv2.html">   74</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classgpusandbox_1_1cpu__conv2.html">cpu_conv2</a> {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        static_assert(size % 2, <span class="stringliteral">&quot;must be odd&quot;</span>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Functor&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classgpusandbox_1_1cpu__conv2.html#addd9485ee7e64e7744fc1eea145cf74e">   79</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classgpusandbox_1_1cpu__conv2.html#addd9485ee7e64e7744fc1eea145cf74e">operator()</a>(<span class="keyword">const</span> <a class="code" href="classgpusandbox_1_1image.html">image</a>&amp; input, <a class="code" href="classgpusandbox_1_1image.html">image</a>&amp; output, Functor f, <span class="keyword">const</span> <span class="keywordtype">float</span> kernel1[size][size], <span class="keyword">const</span> <span class="keywordtype">float</span> kernel2[size][size]) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">int</span>          w      = input.<a class="code" href="classgpusandbox_1_1image.html#ab1171e8878416248b0eb30280e6c399b">width</a>();</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordtype">int</span>          h      = input.<a class="code" href="classgpusandbox_1_1image.html#ab555ef39ba45222a945437022e02a2ec">height</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">const</span> <a class="code" href="structgpusandbox_1_1color.html">color</a>* s_data = input.<a class="code" href="classgpusandbox_1_1image.html#a1c357b7b5695945751460d58ca432ddf">data</a>().data();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="structgpusandbox_1_1color.html">color</a>*       d_data = output.<a class="code" href="classgpusandbox_1_1image.html#a1c357b7b5695945751460d58ca432ddf">data</a>().data();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> pixel_i = 0; pixel_i &lt; h; pixel_i++) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> pixel_j = 0; pixel_j &lt; w; pixel_j++) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <a class="code" href="structgpusandbox_1_1color.html">color</a> result{};</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    <a class="code" href="structgpusandbox_1_1color.html">color</a> result1{};</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <a class="code" href="structgpusandbox_1_1color.html">color</a> result2{};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> kernel_i = 0; kernel_i &lt; size; kernel_i++) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> kernel_j = 0; kernel_j &lt; size; kernel_j++) {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                            <span class="keywordtype">int</span> sample_i = pixel_i + kernel_i - size / 2;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                            <span class="keywordtype">int</span> sample_j = pixel_j + kernel_j - size / 2;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                            <span class="keywordflow">if</span> (0 &lt;= sample_i &amp;&amp; sample_i &lt; h &amp;&amp; 0 &lt;= sample_j &amp;&amp; sample_j &lt; w) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                <a class="code" href="structgpusandbox_1_1color.html">color</a> source = s_data[sample_i * w + sample_j];</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                                result1.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> += source.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> * kernel1[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                result1.g += source.<a class="code" href="structgpusandbox_1_1color.html#a071b69748248b96b4af424e22a9bd18c">g</a> * kernel1[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                result1.b += source.<a class="code" href="structgpusandbox_1_1color.html#ad38267f741c8062d971787d17bac5b3d">b</a> * kernel1[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                result2.r += source.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> * kernel2[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                result2.g += source.<a class="code" href="structgpusandbox_1_1color.html#a071b69748248b96b4af424e22a9bd18c">g</a> * kernel2[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                result2.b += source.<a class="code" href="structgpusandbox_1_1color.html#ad38267f741c8062d971787d17bac5b3d">b</a> * kernel2[kernel_i][kernel_j];</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                            }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    result.r = f(result1.r, result2.r);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                    result.g = f(result1.g, result2.g);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    result.b = f(result1.b, result2.b);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    result.r = std::min(std::max(0.0f, result.r), 1.0f);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    result.g = std::min(std::max(0.0f, result.g), 1.0f);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    result.b = std::min(std::max(0.0f, result.b), 1.0f);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    result.a = 1.0f;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                    d_data[pixel_i * w + pixel_j] = result;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    };</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                            }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    result.r /= factor;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    result.g /= factor;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    result.b /= factor;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    result.r = std::min(std::max(0.0f, result.r), 1.0f);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    result.g = std::min(std::max(0.0f, result.g), 1.0f);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                    result.b = std::min(std::max(0.0f, result.b), 1.0f);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    result.a = 1.0f;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    d_data[pixel_i * w + pixel_j] = result;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    };</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> size&gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classgpusandbox_1_1cpu__conv2.html">   72</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classgpusandbox_1_1cpu__conv2.html">cpu_conv2</a> {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        static_assert(size % 2, <span class="stringliteral">&quot;must be odd&quot;</span>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Functor&gt;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classgpusandbox_1_1cpu__conv2.html#addd9485ee7e64e7744fc1eea145cf74e">   77</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classgpusandbox_1_1cpu__conv2.html#addd9485ee7e64e7744fc1eea145cf74e">operator()</a>(<span class="keyword">const</span> <a class="code" href="classgpusandbox_1_1image.html">image</a>&amp; input, <a class="code" href="classgpusandbox_1_1image.html">image</a>&amp; output, Functor f, <span class="keyword">const</span> <span class="keywordtype">float</span> kernel1[size][size], <span class="keyword">const</span> <span class="keywordtype">float</span> kernel2[size][size]) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">int</span>          w      = input.<a class="code" href="classgpusandbox_1_1image.html#ab1171e8878416248b0eb30280e6c399b">width</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordtype">int</span>          h      = input.<a class="code" href="classgpusandbox_1_1image.html#ab555ef39ba45222a945437022e02a2ec">height</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">const</span> <a class="code" href="structgpusandbox_1_1color.html">color</a>* s_data = input.<a class="code" href="classgpusandbox_1_1image.html#a1c357b7b5695945751460d58ca432ddf">data</a>().data();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <a class="code" href="structgpusandbox_1_1color.html">color</a>*       d_data = output.<a class="code" href="classgpusandbox_1_1image.html#a1c357b7b5695945751460d58ca432ddf">data</a>().data();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> pixel_i = 0; pixel_i &lt; h; pixel_i++) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> pixel_j = 0; pixel_j &lt; w; pixel_j++) {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    <a class="code" href="structgpusandbox_1_1color.html">color</a> result{};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <a class="code" href="structgpusandbox_1_1color.html">color</a> result1{};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <a class="code" href="structgpusandbox_1_1color.html">color</a> result2{};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> kernel_i = 0; kernel_i &lt; size; kernel_i++) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> kernel_j = 0; kernel_j &lt; size; kernel_j++) {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                            <span class="keywordtype">int</span> sample_i = pixel_i + kernel_i - size / 2;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                            <span class="keywordtype">int</span> sample_j = pixel_j + kernel_j - size / 2;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                            <span class="keywordflow">if</span> (0 &lt;= sample_i &amp;&amp; sample_i &lt; h &amp;&amp; 0 &lt;= sample_j &amp;&amp; sample_j &lt; w) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                <a class="code" href="structgpusandbox_1_1color.html">color</a> source = s_data[sample_i * w + sample_j];</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                                result1.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> += source.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> * kernel1[kernel_i][kernel_j];</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                                result1.g += source.<a class="code" href="structgpusandbox_1_1color.html#a071b69748248b96b4af424e22a9bd18c">g</a> * kernel1[kernel_i][kernel_j];</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                                result1.b += source.<a class="code" href="structgpusandbox_1_1color.html#ad38267f741c8062d971787d17bac5b3d">b</a> * kernel1[kernel_i][kernel_j];</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                result2.r += source.<a class="code" href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">r</a> * kernel2[kernel_i][kernel_j];</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                result2.g += source.<a class="code" href="structgpusandbox_1_1color.html#a071b69748248b96b4af424e22a9bd18c">g</a> * kernel2[kernel_i][kernel_j];</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                result2.b += source.<a class="code" href="structgpusandbox_1_1color.html#ad38267f741c8062d971787d17bac5b3d">b</a> * kernel2[kernel_i][kernel_j];</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    result.r = f(result1.r, result2.r);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    result.g = f(result1.g, result2.g);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    result.b = f(result1.b, result2.b);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                    result.r = std::min(std::max(0.0f, result.r), 1.0f);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    result.g = std::min(std::max(0.0f, result.g), 1.0f);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    result.b = std::min(std::max(0.0f, result.b), 1.0f);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    result.a = 1.0f;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    d_data[pixel_i * w + pixel_j] = result;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}<span class="comment">// namespace gpusandbox</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}<span class="comment">// namespace gpusandbox</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//GPUSANDBOX_CPU_CONV_HPP</span></div>
-<div class="ttc" id="aclassgpusandbox_1_1cpu__conv2_html"><div class="ttname"><a href="classgpusandbox_1_1cpu__conv2.html">gpusandbox::cpu_conv2</a></div><div class="ttdoc">Naive cpu convolution using two 2-d kernel plus merge functor.</div><div class="ttdef"><b>Definition:</b> cpu_conv.hpp:74</div></div>
-<div class="ttc" id="aclassgpusandbox_1_1cpu__conv2_html_addd9485ee7e64e7744fc1eea145cf74e"><div class="ttname"><a href="classgpusandbox_1_1cpu__conv2.html#addd9485ee7e64e7744fc1eea145cf74e">gpusandbox::cpu_conv2::operator()</a></div><div class="ttdeci">void operator()(const image &amp;input, image &amp;output, Functor f, const float kernel1[size][size], const float kernel2[size][size])</div><div class="ttdef"><b>Definition:</b> cpu_conv.hpp:79</div></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span><span class="comment">//GPUSANDBOX_CPU_CONV_HPP</span></div>
+<div class="ttc" id="aclassgpusandbox_1_1cpu__conv2_html"><div class="ttname"><a href="classgpusandbox_1_1cpu__conv2.html">gpusandbox::cpu_conv2</a></div><div class="ttdoc">Naive cpu convolution using two 2-d kernel plus merge functor.</div><div class="ttdef"><b>Definition:</b> cpu_conv.hpp:72</div></div>
+<div class="ttc" id="aclassgpusandbox_1_1cpu__conv2_html_addd9485ee7e64e7744fc1eea145cf74e"><div class="ttname"><a href="classgpusandbox_1_1cpu__conv2.html#addd9485ee7e64e7744fc1eea145cf74e">gpusandbox::cpu_conv2::operator()</a></div><div class="ttdeci">void operator()(const image &amp;input, image &amp;output, Functor f, const float kernel1[size][size], const float kernel2[size][size])</div><div class="ttdef"><b>Definition:</b> cpu_conv.hpp:77</div></div>
 <div class="ttc" id="aclassgpusandbox_1_1cpu__conv_html"><div class="ttname"><a href="classgpusandbox_1_1cpu__conv.html">gpusandbox::cpu_conv</a></div><div class="ttdoc">Naive cpu convolution using 2-d kernel.</div><div class="ttdef"><b>Definition:</b> cpu_conv.hpp:22</div></div>
 <div class="ttc" id="aclassgpusandbox_1_1cpu__conv_html_a7678ca9ba2da7d9ab0880f8b1774f0ea"><div class="ttname"><a href="classgpusandbox_1_1cpu__conv.html#a7678ca9ba2da7d9ab0880f8b1774f0ea">gpusandbox::cpu_conv::operator()</a></div><div class="ttdeci">void operator()(const image &amp;input, image &amp;output, float factor, const float kernel[size][size])</div><div class="ttdef"><b>Definition:</b> cpu_conv.hpp:26</div></div>
 <div class="ttc" id="aclassgpusandbox_1_1image_html"><div class="ttname"><a href="classgpusandbox_1_1image.html">gpusandbox::image</a></div><div class="ttdoc">2d-image holding pixel data in float format with a float per pixel</div><div class="ttdef"><b>Definition:</b> image.hpp:20</div></div>
@@ -190,10 +188,9 @@ $(function() {
 <div class="ttc" id="aclassgpusandbox_1_1image_html_ab1171e8878416248b0eb30280e6c399b"><div class="ttname"><a href="classgpusandbox_1_1image.html#ab1171e8878416248b0eb30280e6c399b">gpusandbox::image::width</a></div><div class="ttdeci">int width() const</div><div class="ttdef"><b>Definition:</b> image.hpp:28</div></div>
 <div class="ttc" id="aclassgpusandbox_1_1image_html_ab555ef39ba45222a945437022e02a2ec"><div class="ttname"><a href="classgpusandbox_1_1image.html#ab555ef39ba45222a945437022e02a2ec">gpusandbox::image::height</a></div><div class="ttdeci">int height() const</div><div class="ttdef"><b>Definition:</b> image.hpp:29</div></div>
 <div class="ttc" id="aimage_8hpp_html"><div class="ttname"><a href="image_8hpp.html">image.hpp</a></div></div>
-<div class="ttc" id="anamespacegpusandbox_html"><div class="ttname"><a href="namespacegpusandbox.html">gpusandbox</a></div><div class="ttdef"><b>Definition:</b> color.hpp:10</div></div>
+<div class="ttc" id="anamespacegpusandbox_html"><div class="ttname"><a href="namespacegpusandbox.html">gpusandbox</a></div><div class="ttdef"><b>Definition:</b> cl_backend.cpp:12</div></div>
 <div class="ttc" id="astructgpusandbox_1_1color_html"><div class="ttname"><a href="structgpusandbox_1_1color.html">gpusandbox::color</a></div><div class="ttdoc">4-chanel float color representation</div><div class="ttdef"><b>Definition:</b> color.hpp:15</div></div>
 <div class="ttc" id="astructgpusandbox_1_1color_html_a071b69748248b96b4af424e22a9bd18c"><div class="ttname"><a href="structgpusandbox_1_1color.html#a071b69748248b96b4af424e22a9bd18c">gpusandbox::color::g</a></div><div class="ttdeci">float g</div><div class="ttdef"><b>Definition:</b> color.hpp:17</div></div>
-<div class="ttc" id="astructgpusandbox_1_1color_html_a0f7f80bbe5911978f152aa743a960a10"><div class="ttname"><a href="structgpusandbox_1_1color.html#a0f7f80bbe5911978f152aa743a960a10">gpusandbox::color::a</a></div><div class="ttdeci">float a</div><div class="ttdef"><b>Definition:</b> color.hpp:19</div></div>
 <div class="ttc" id="astructgpusandbox_1_1color_html_a1c07b569d64dd1d28504e5d19b573d22"><div class="ttname"><a href="structgpusandbox_1_1color.html#a1c07b569d64dd1d28504e5d19b573d22">gpusandbox::color::r</a></div><div class="ttdeci">float r</div><div class="ttdef"><b>Definition:</b> color.hpp:16</div></div>
 <div class="ttc" id="astructgpusandbox_1_1color_html_ad38267f741c8062d971787d17bac5b3d"><div class="ttname"><a href="structgpusandbox_1_1color.html#ad38267f741c8062d971787d17bac5b3d">gpusandbox::color::b</a></div><div class="ttdeci">float b</div><div class="ttdef"><b>Definition:</b> color.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->

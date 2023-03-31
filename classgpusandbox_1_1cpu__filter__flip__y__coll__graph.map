@@ -1,5 +1,4 @@
 <map id="gpusandbox::cpu_filter_flip_y" name="gpusandbox::cpu_filter_flip_y">
-<area shape="rect" id="node1" title="Naive cpu flip along y axis from bottom to top filter." alt="" coords="5,185,155,227"/>
-<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="An interface to any image filter." alt="" coords="19,109,141,136"/>
-<area shape="rect" id="node3" href="$classgpusandbox_1_1image.html" title="2d&#45;image holding pixel data in float format with a float per pixel" alt="" coords="14,5,146,32"/>
+<area shape="rect" id="node1" title="Naive cpu flip along y axis from bottom to top filter." alt="" coords="5,80,155,121"/>
+<area shape="rect" id="node2" href="$classgpusandbox_1_1filter.html" title="A base class for any image filter." alt="" coords="19,5,141,32"/>
 </map>
